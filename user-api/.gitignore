@@ -35,4 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
-/user-api/build.gradle
+*.properties
+
+
+/src/main/java/com/example/userapi/domain/
