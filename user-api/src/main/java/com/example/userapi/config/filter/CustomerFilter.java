@@ -3,7 +3,7 @@ package com.example.userapi.config.filter;
 
 import com.example.domain.common.UserVo;
 import com.example.domain.config.JwtAuthenticationProvider;
-import com.example.userapi.service.CustomerService;
+import com.example.userapi.service.customer.CustomerService;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

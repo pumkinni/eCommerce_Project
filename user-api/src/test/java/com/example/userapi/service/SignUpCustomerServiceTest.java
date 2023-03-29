@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.userapi.domain.SignUpForm;
 import com.example.userapi.domain.model.Customer;
+import com.example.userapi.service.customer.SignUpCustomerService;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
