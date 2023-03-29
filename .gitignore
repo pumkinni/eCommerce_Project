@@ -38,3 +38,5 @@ out/
 *.properties
 
 
+/user-api/gradlew
+/user-api/gradlew.bat
