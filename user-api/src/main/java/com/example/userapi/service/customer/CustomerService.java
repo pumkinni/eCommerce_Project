@@ -1,4 +1,4 @@
-package com.example.userapi.service;
+package com.example.userapi.service.customer;
 
 
 import com.example.userapi.domain.model.Customer;
