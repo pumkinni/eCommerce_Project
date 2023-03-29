@@ -1,14 +1,10 @@
 package com.example.userapi.service;
 
-import static com.example.userapi.exception.ErrorCode.ALREADY_VERIFY;
-import static com.example.userapi.exception.ErrorCode.EXPIRE_CODE;
-import static com.example.userapi.exception.ErrorCode.NO_FOUND_USER;
-import static com.example.userapi.exception.ErrorCode.WRONG_VERIFICATION;
-
 import com.example.userapi.domain.SignUpForm;
 import com.example.userapi.domain.model.Customer;
 import com.example.userapi.domain.repository.CustomerRepository;
 import com.example.userapi.exception.CustomException;
+import com.example.userapi.exception.ErrorCode;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Optional;
@@ -33,14 +29,14 @@ public class SignUpCustomerService {
     @Transactional
     public void verifyEmail(String email, String code) {
         Customer customer = customerRepository.findByEmail(email)
-            .orElseThrow(() -> new CustomException(NO_FOUND_USER));
+            .orElseThrow(() -> new CustomException(ErrorCode.NO_FOUND_USER));
 
         if (customer.isVerify()) {
-            throw new CustomException(ALREADY_VERIFY);
+            throw new CustomException(ErrorCode.ALREADY_VERIFY);
         } else if (!customer.getVerificationCode().equals(code)) {
-            throw new CustomException(WRONG_VERIFICATION);
+            throw new CustomException(ErrorCode.WRONG_VERIFICATION);
         } else if (customer.getVerifyExpiredAt().isBefore(LocalDateTime.now())) {
-            throw new CustomException(EXPIRE_CODE);
+            throw new CustomException(ErrorCode.EXPIRE_CODE);
         }
         customer.setVerify(true);
     }
@@ -56,7 +52,7 @@ public class SignUpCustomerService {
             customer.setVerifyExpiredAt(LocalDateTime.now().plusDays(1));
             return customer.getVerifyExpiredAt();
         }
-        throw new CustomException(NO_FOUND_USER);
+        throw new CustomException(ErrorCode.NO_FOUND_USER);
     }
 
 }
