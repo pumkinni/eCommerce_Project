@@ -2,7 +2,6 @@ package com.example.userapi.controller;
 
 
 import com.example.userapi.service.EmailSendService;
-import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

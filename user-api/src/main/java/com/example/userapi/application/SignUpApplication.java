@@ -1,12 +1,12 @@
 package com.example.userapi.application;
 
 
-import com.example.userapi.client.MailgunClient;
-import com.example.userapi.client.mailgun.SendMailForm;
 import com.example.userapi.domain.SignUpForm;
 import com.example.userapi.domain.model.Customer;
 import com.example.userapi.exception.CustomException;
 import com.example.userapi.exception.ErrorCode;
+import com.example.userapi.client.MailgunClient;
+import com.example.userapi.client.mailgun.SendMailForm;
 import com.example.userapi.service.SignUpCustomerService;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;

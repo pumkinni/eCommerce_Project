@@ -1,5 +1,6 @@
 package com.example.userapi.exception;
 
+import javax.servlet.ServletException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -19,6 +20,8 @@ public class ExceptionController {
         return ResponseEntity.badRequest()
             .body(new ExceptionResponse(c.getMessage(), c.getErrorCode()));
     }
+
+
 
 
     @Getter
