@@ -2,6 +2,7 @@ package com.example.userapi.domain.model;
 
 
 import com.example.userapi.domain.SignUpForm;
+import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +39,9 @@ public class Customer extends BaseEntity{
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;
     private boolean verify;
+
+    @Column(columnDefinition = "int default 0")
+    private Integer balance;
 
     public static Customer from(SignUpForm form){
         return Customer.builder()
