@@ -56,10 +56,10 @@ Content-Type: application/json
 }
 
 ### 이메일 인증
-GET http://localhost:8081/signup/seller/verify?email=kmju1235@gmail.com&code=SBUvs8HSvB
+GET http://localhost:8081/signup/seller/verify?email=kmju1235@gmail.com&code=g7aVYX31iq
 
 ### 로그인 (셀러)
-POST http://localhost:8081/signin/customer
+POST http://localhost:8081/signin/seller
 Content-Type: application/json
 
 {
