@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### 이메일 인증
-GET http://localhost:8081/signup/customer/verify?email=kmju1235@gmail.com&code=9I0a2iIQ3D
+GET http://localhost:8081/signup/customer/verify?email=kmju1235@gmail.com&code=aEdWbEU9re
 
 ### 로그인 (고객)
 POST http://localhost:8081/signin/customer
