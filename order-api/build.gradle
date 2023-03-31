@@ -26,6 +26,13 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
 
 
+    //queryDSL
+    implementation 'com.querydsl:querydsl-jpa:5.0.0'
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jpa"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+
+
     //redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     testImplementation('it.ozimov:embedded-redis:0.7.3') {
