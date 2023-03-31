@@ -27,3 +27,37 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2Fla
       "price": 200000
 }
 
+
+### 상품 수정
+PUT http://localhost:8083/seller/product
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2FlaEhJL1owZHNxNEF2N0pnZzlzPSIsImp0aSI6IjFRQm15bDFHQ3F4eVVSYkdvVFFYblE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMTc1Njc4LCJleHAiOjE2ODAyNjIwNzh9.LsOqWT-dnFyxBtrZNXvlroFYe8gBvdJt6r-IxhDdIys
+
+{
+  "description": "상품 설명~~~",
+  "items": [
+    {
+      "id": 1,
+      "count": 1,
+      "name": "스페이스그레이",
+      "price": 200000
+    }
+  ],
+  "id": 1,
+  "name": "나이키 에어포스 한정판"
+}
+
+### 상품 아이템 수정
+PUT http://localhost:8083/seller/product/item
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2FlaEhJL1owZHNxNEF2N0pnZzlzPSIsImp0aSI6IjFRQm15bDFHQ3F4eVVSYkdvVFFYblE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMTc1Njc4LCJleHAiOjE2ODAyNjIwNzh9.LsOqWT-dnFyxBtrZNXvlroFYe8gBvdJt6r-IxhDdIys
+
+{
+  "id": 1,
+  "count": 1,
+  "name": "그레이",
+  "price": 200000
+}
+
+
+
