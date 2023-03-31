@@ -20,8 +20,7 @@ POST http://localhost:8083/seller/product/item
 Content-Type: application/json
 X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2FlaEhJL1owZHNxNEF2N0pnZzlzPSIsImp0aSI6IjFRQm15bDFHQ3F4eVVSYkdvVFFYblE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMTc1Njc4LCJleHAiOjE2ODAyNjIwNzh9.LsOqWT-dnFyxBtrZNXvlroFYe8gBvdJt6r-IxhDdIys
 
-{
-      "productId": 1,
+{     "productId": 1,
       "count": 4,
       "name": "검은색",
       "price": 200000
@@ -58,6 +57,19 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2Fla
   "name": "그레이",
   "price": 200000
 }
+
+### 상품 삭제
+DELETE http://localhost:8083/seller/product?id=2
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2FlaEhJL1owZHNxNEF2N0pnZzlzPSIsImp0aSI6IjFRQm15bDFHQ3F4eVVSYkdvVFFYblE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMTc1Njc4LCJleHAiOjE2ODAyNjIwNzh9.LsOqWT-dnFyxBtrZNXvlroFYe8gBvdJt6r-IxhDdIys
+
+
+
+### 상품 아이템 삭제
+DELETE http://localhost:8083/seller/product/item?id=1
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmajVaWm9GTnpjNWdNcjEwQWFObkFtK2FlaEhJL1owZHNxNEF2N0pnZzlzPSIsImp0aSI6IjFRQm15bDFHQ3F4eVVSYkdvVFFYblE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMTc1Njc4LCJleHAiOjE2ODAyNjIwNzh9.LsOqWT-dnFyxBtrZNXvlroFYe8gBvdJt6r-IxhDdIys
+
 
 
 

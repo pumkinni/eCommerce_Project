@@ -26,7 +26,7 @@ public class ProductItemService {
     private final ProductItemRepository productItemRepository;
 
 
-//    @Transactional
+    @Transactional
     public Product addProductItem(Long sellerId, AddProductItemForm form){
         Product product = productRepository.findBySellerIdAndId(sellerId, form.getProductId())
             .orElseThrow(() -> new CustomException(NOT_FOUND_PRODUCT));
@@ -51,5 +51,14 @@ public class ProductItemService {
         productItem.setPrice(form.getPrice());
         return productItem;
 
+    }
+
+    @Transactional
+    public void deleteProductItem(Long sellerId, Long productItemId){
+        ProductItem productItem = productItemRepository.findById(productItemId)
+            .filter(pi -> pi.getSellerId().equals(sellerId)).orElseThrow(
+                () -> new CustomException(NOT_FOUND_ITEM));
+
+        productItemRepository.delete(productItem);
     }
 }
