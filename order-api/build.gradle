@@ -51,6 +51,8 @@ dependencies {
 
     implementation 'org.springframework.data:spring-data-envers'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
 
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
