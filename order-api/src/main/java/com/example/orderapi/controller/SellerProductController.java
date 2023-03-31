@@ -6,12 +6,15 @@ import com.example.orderapi.domain.product.AddProductForm;
 import com.example.orderapi.domain.product.AddProductItemForm;
 import com.example.orderapi.domain.product.ProductDto;
 import com.example.orderapi.domain.product.ProductItemDto;
+import com.example.orderapi.domain.product.UpdateProductForm;
+import com.example.orderapi.domain.product.UpdateProductItemForm;
 import com.example.orderapi.service.ProductItemService;
 import com.example.orderapi.service.ProductService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,5 +48,23 @@ public class SellerProductController {
         @RequestBody AddProductItemForm form) {
         return ResponseEntity.ok(ProductDto.from
             (productItemService.addProductItem(provider.getUserVo(token).getId(), form)));
+    }
+
+    @ApiOperation("상품 수정")
+    @PutMapping
+    public ResponseEntity<ProductDto> addProduct(
+        @RequestHeader(name = "X-AUTH-TOKEN") String token,
+        @RequestBody UpdateProductForm form) {
+        return ResponseEntity.ok(ProductDto.from
+            (productService.updateProduct(provider.getUserVo(token).getId(), form)));
+    }
+
+    @ApiOperation("상품 아이템 수정")
+    @PutMapping("/item")
+    public ResponseEntity<ProductItemDto> updateProductItem(
+        @RequestHeader(name = "X-AUTH-TOKEN") String token,
+        @RequestBody UpdateProductItemForm form) {
+        return ResponseEntity.ok(ProductItemDto.from
+            (productItemService.updateProductItem(provider.getUserVo(token).getId(), form)));
     }
 }

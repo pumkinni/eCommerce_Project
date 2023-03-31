@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddProductForm {
-
+public class UpdateProductForm {
+    private Long id;
     private String name;
     private String description;
-    private List<AddProductItemForm> items;
-
+    private List<UpdateProductItemForm> items;
 }
