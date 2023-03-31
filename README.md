@@ -26,7 +26,7 @@ Spring, Jpa, Mysql, Redis, Docker, AWS, Swagger, JWT
 ## 주문 서버
 
 ### 셀러
-- [ ] 상품 등록, 수정
+- [X] 상품 등록, 수정
 - [ ] 상품 삭제
 
 
