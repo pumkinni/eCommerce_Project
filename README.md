@@ -35,5 +35,6 @@ Spring, Jpa, Mysql, Redis, Docker, AWS, Swagger, JWT
 - [X] 상품 검색 & 상세 페이지
 - [X] 장바구니에 물건 추가
 - [X] 장바구니 확인
+- [X] 장바구니 변경
 - [ ] 주문하기
 - [ ] 주문내역 이메일로 발송하기

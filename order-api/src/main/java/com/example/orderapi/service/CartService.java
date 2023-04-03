@@ -20,8 +20,10 @@ public class CartService {
     private final RedisClient redisClient;
 
     public Cart putCart(Long customerId, Cart cart){
+        // 실제로 변경되는 사항은
+        // 상품 삭제, 수량 변경 뿐
         redisClient.put(customerId, cart);
-        return cart;
+        return getCart(customerId);
     }
 
     public Cart getCart(Long customerId){
