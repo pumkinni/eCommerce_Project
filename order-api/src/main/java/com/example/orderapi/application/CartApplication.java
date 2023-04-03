@@ -40,6 +40,10 @@ public class CartApplication {
         return cartService.addCart(customerId, form);
     }
 
+    public Cart updateCart(Long customerId, Cart cart){
+        return cartService.putCart(customerId, cart);
+    }
+
     //1. 장바구니에 상품을 추가한다.
     //2. 상품의 가격이나 수량이 변동된다. -> 변동된 사항에 대해 알림
     public Cart getCart(Long customerId) {
