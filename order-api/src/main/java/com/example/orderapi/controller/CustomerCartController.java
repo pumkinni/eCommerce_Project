@@ -4,6 +4,7 @@ import com.example.domain.config.JwtAuthenticationProvider;
 import com.example.orderapi.application.CartApplication;
 import com.example.orderapi.domain.product.AddProductCartForm;
 import com.example.orderapi.domain.redis.Cart;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,4 +29,11 @@ public class CustomerCartController {
         @RequestBody AddProductCartForm form) {
         return ResponseEntity.ok(cartApplication.addCart(provider.getUserVo(token).getId(), form));
     }
+
+    @ApiOperation("장바구니 확인")
+    public ResponseEntity<Cart> showCart(
+        @RequestHeader(name = "X-AUTH-TOKEN") String token) {
+        return ResponseEntity.ok(cartApplication.getCart(provider.getUserVo(token).getId()));
+    }
+
 }
