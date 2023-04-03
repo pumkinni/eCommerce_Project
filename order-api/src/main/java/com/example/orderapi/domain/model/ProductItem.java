@@ -1,7 +1,6 @@
 package com.example.orderapi.domain.model;
 
 import com.example.orderapi.domain.product.AddProductItemForm;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +18,8 @@ import org.hibernate.envers.Audited;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Builder
 @AuditOverride(forClass = BaseEntity.class)
 public class ProductItem extends BaseEntity {

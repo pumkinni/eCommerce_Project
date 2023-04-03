@@ -7,12 +7,10 @@ import static com.example.orderapi.exception.ErrorCode.SAME_ITEM_NAME;
 import com.example.orderapi.domain.model.Product;
 import com.example.orderapi.domain.model.ProductItem;
 import com.example.orderapi.domain.product.AddProductItemForm;
-import com.example.orderapi.domain.product.ProductItemDto;
 import com.example.orderapi.domain.product.UpdateProductItemForm;
 import com.example.orderapi.domain.repository.ProductItemRepository;
 import com.example.orderapi.domain.repository.ProductRepository;
 import com.example.orderapi.exception.CustomException;
-import com.example.orderapi.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,13 +23,23 @@ public class ProductItemService {
     private final ProductRepository productRepository;
     private final ProductItemRepository productItemRepository;
 
+    @Transactional
+    public ProductItem getProductItem(Long id) {
+        return productItemRepository.getById(id);
+    }
+
+    public ProductItem saveProductItem(ProductItem productItem) {
+        return productItemRepository.save(productItem);
+    }
+
 
     @Transactional
-    public Product addProductItem(Long sellerId, AddProductItemForm form){
+    public Product addProductItem(Long sellerId, AddProductItemForm form) {
         Product product = productRepository.findBySellerIdAndId(sellerId, form.getProductId())
             .orElseThrow(() -> new CustomException(NOT_FOUND_PRODUCT));
 
-        if (product.getProductItems().stream().anyMatch(item -> item.getName().equals(form.getName()))){
+        if (product.getProductItems().stream()
+            .anyMatch(item -> item.getName().equals(form.getName()))) {
             throw new CustomException(SAME_ITEM_NAME);
         }
 
@@ -42,7 +50,7 @@ public class ProductItemService {
     }
 
     @Transactional
-    public ProductItem updateProductItem( Long sellerId, UpdateProductItemForm form){
+    public ProductItem updateProductItem(Long sellerId, UpdateProductItemForm form) {
         ProductItem productItem = productItemRepository.findById(form.getId())
             .filter(pi -> pi.getSellerId().equals(sellerId)).orElseThrow(
                 () -> new CustomException(NOT_FOUND_ITEM));
@@ -54,7 +62,7 @@ public class ProductItemService {
     }
 
     @Transactional
-    public void deleteProductItem(Long sellerId, Long productItemId){
+    public void deleteProductItem(Long sellerId, Long productItemId) {
         ProductItem productItem = productItemRepository.findById(productItemId)
             .filter(pi -> pi.getSellerId().equals(sellerId)).orElseThrow(
                 () -> new CustomException(NOT_FOUND_ITEM));
