@@ -2,9 +2,9 @@ package com.example.orderapi.controller;
 
 import com.example.domain.config.JwtAuthenticationProvider;
 import com.example.orderapi.application.CartApplication;
+import com.example.orderapi.application.OrderApplication;
 import com.example.orderapi.domain.product.AddProductCartForm;
 import com.example.orderapi.domain.redis.Cart;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +23,7 @@ public class CustomerCartController {
 
     private final CartApplication cartApplication;
     private final JwtAuthenticationProvider provider;
+    private final OrderApplication orderApplication;
 
     @ApiOperation("장바구니 추가")
     @PostMapping
@@ -45,5 +46,15 @@ public class CustomerCartController {
         @RequestBody Cart cart) {
         return ResponseEntity.ok(cartApplication.updateCart(provider.getUserVo(token).getId(), cart));
     }
+
+    @PostMapping("/order")
+    public ResponseEntity<Cart> order(
+        @RequestHeader(name = "X-AUTH-TOKEN") String token,
+        @RequestBody Cart cart) {
+        orderApplication.order(token, cart);
+        return ResponseEntity.ok().build();
+    }
+
+
 
 }
